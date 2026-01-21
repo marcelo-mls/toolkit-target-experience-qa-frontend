@@ -3,7 +3,8 @@ import styled from 'styled-components';
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  background-color: #07B2FD;
+  background-color: ${({ temaOferta }) =>
+    temaOferta === 'vermelho' ? '#FF4F43' : '#07B2FD'};
   border-radius: 16px;
   color: #ffffff;
   padding: 12px 16px;

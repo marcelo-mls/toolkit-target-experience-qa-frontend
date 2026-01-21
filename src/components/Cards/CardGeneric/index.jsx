@@ -5,10 +5,10 @@ import { Container } from './style';
 
 
 export default function CardToast(props) {
-  const { titulo, subtitulo, botao, textoTitulo, textoDescricao, textoBotao } = props.payload.offerDetails.content.payload;
+  const { titulo, subtitulo, botao, textoTitulo, textoDescricao, textoBotao, temaOferta } = props.payload.offerDetails.content.payload;
 
   return (
-    <Container>
+    <Container temaOferta={temaOferta}>
       <h1>{titulo || textoTitulo}</h1>
       <h2>{subtitulo || textoDescricao}</h2>
       <div>

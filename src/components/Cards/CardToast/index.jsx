@@ -5,10 +5,10 @@ import { Container, X, Content } from './style';
 
 
 export default function CardToast(props) {
-  const { title, description, button } = props.payload.offerDetails.content.payload;
+  const { title, description, button, theme } = props.payload.offerDetails.content.payload;
 
   return (
-    <Container >
+    <Container temaOferta={theme}>
       <X>x</X>
       <Content>
         <img src={icons.bell} alt="Ringing bell icon" />

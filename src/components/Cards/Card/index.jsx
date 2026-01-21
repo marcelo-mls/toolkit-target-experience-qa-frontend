@@ -35,6 +35,7 @@ export default function Card(props) {
     const isCardToast = [
       SPACES_OBJECT.modalHomeCartaoProd.mBox.toLowerCase(),
       SPACES_OBJECT.modalHomeContaProd.mBox.toLowerCase(),
+      SPACES_OBJECT.modalHomeCreditoProd.mBox.toLowerCase(),
       'mBox2'.toLowerCase() // Configuração para tela de mock
     ].some((space) => lowerCaseName.includes(space));
     
@@ -55,14 +56,16 @@ export default function Card(props) {
     }
   };
 
+  const offerActivityType = offer.type.activity === 'auto_allocate' ? 'aa' : offer.type.activity;
+
   const setBackgroundColorForType = (type) => {
     if(type === 'xt') return '#963484';
-    if(type === 'ab') return '#3A7D44';
+    if(type === 'ab' || type === 'aa') return '#3A7D44';
     return '#1a1a1a';
   };
 
   const isQA = (audienceDetails.name.toLowerCase().includes('target qa')) ||
-    ([2437296, 2143318, 2565598, 2544056, 2567469, 2571312, 2583493, 2582484, 2616969].includes(audienceDetails.id));
+    ([2437296, 2143318, 2565598, 2544056, 2567469, 2571312, 2583493, 2582484, 2616969, 3406153].includes(audienceDetails.id));
 
   const qualityAssurance = {
     isQA,
@@ -80,8 +83,8 @@ export default function Card(props) {
       </CardTitles>
       <CardContent>
         <div>
-          <TypeContainer title={offer.experience.name} $typeColor={setBackgroundColorForType(offer.type.activity)}>
-            {offer.type.activity.toUpperCase()}
+          <TypeContainer title={offer.experience.name} $typeColor={setBackgroundColorForType(offerActivityType)}>
+            {offerActivityType.toUpperCase()}
           </TypeContainer>
           <span title={ordinationTextInfo}>{ordination.priority}</span>
           {qualityAssurance.isQA && <QAContainer title={qualityAssurance.title}>

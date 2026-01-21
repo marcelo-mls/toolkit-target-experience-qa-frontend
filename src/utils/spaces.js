@@ -13,6 +13,8 @@ export const SPACES_OBJECT = {
   modalHomeCartaoProd : { displayName: 'Modal Toast Cartão', mBox: 'modalHomeCartaoProd' },
   modalHomeContaProd : { displayName: 'Modal Toast Conta', mBox: 'modalHomeContaProd' },
   modalHomeCreditoProd : { displayName: 'Modal Toast Crédito', mBox: 'modalHomeCreditoProd' },
+  dashAfterCallsFGTSSucessoProd : { displayName: 'AfterCalls FGTS Sucesso', mBox: 'dashAfterCallsFGTSSucessoProd' },
+  dashAfterCallsFGTSInsucessoProd : { displayName: 'AfterCalls FGTS Insucesso', mBox: 'dashAfterCallsFGTSInsucessoProd' },
 };
 
 export const SPACES_ARRAY = Object.values(SPACES_OBJECT);
