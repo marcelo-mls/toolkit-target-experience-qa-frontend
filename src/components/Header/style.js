@@ -45,7 +45,7 @@ export const HeaderButton = styled.div`
     background-color: #242424;
     color: rgba(255, 255, 255, 0.87);
     cursor: pointer;
-    width: 208px;
+    max-width: 248px;
 
     &:hover {
       border-color: #646cff;
