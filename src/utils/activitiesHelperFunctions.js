@@ -62,12 +62,13 @@ export function unifySpaceData(groupedActivities) {
     };
   
     groupedActivities.forEach((activity) => {
+      const optionsWithInheritedActivityName = activity.options.map((o) => ({...o, activityName: activity.name}));
       if (activity.scheduling === 'live') {
         live.id.push(activity.id);
-        live.options.push(...activity.options);
+        live.options.push(...optionsWithInheritedActivityName);
       } else if (activity.scheduling === 'scheduled') {
         scheduled.id.push(activity.id);
-        scheduled.options.push(...activity.options);
+        scheduled.options.push(...optionsWithInheritedActivityName);
       }
     });
   

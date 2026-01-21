@@ -28,7 +28,7 @@ export default function Main(props) {
               {activity.options.map((offer, idx) => 
                 <ActivityContent key={idx}>
                   <Card offer={offer} activity={activity} />
-                  <CircularButtons offer={offer} />
+                  <CircularButtons offer={offer} activityName={activity.name} />
                 </ActivityContent>
               )}
             </ActivityContainer>

@@ -7,7 +7,7 @@ import { IconsContainer, AudienceModal } from './style';
 
 
 export default function CircularButtons(props) {
-  const { offerDetails, audienceDetails, experience, ordination, type, scheduling } = props.offer;
+  const { offerDetails, audienceDetails, experience, ordination, type, scheduling, activityName } = props.offer;
   const { content } = offerDetails;
 
   const [isOfferModalVisible, setOfferModalVisible] = useState(false);
@@ -132,6 +132,11 @@ export default function CircularButtons(props) {
         isAudienceModalVisible &&
         <Modal setIsVisible={setAudienceModalVisible}>
           <AudienceModal>
+            <p><strong>Activity: </strong>{activityName || props.activityName}</p>
+            <p><strong>Type: </strong>{type.activity.toUpperCase()}</p>
+            <p><strong>Starts at: </strong>{formatScheduling(scheduling.startsAt)}</p>
+            <p><strong>Ends at: </strong>{formatScheduling(scheduling.endsAt)}</p>
+            <hr/>
             <p>
               <strong>Audience Id: </strong>
               <a href={`https://api-qa-spaces-target.onrender.com/audiences/${modalContent.audienceDetails.id}`} target="_blank" rel="noopener noreferrer">
@@ -140,14 +145,10 @@ export default function CircularButtons(props) {
             </p>
             <p><strong>Audience: </strong>{modalContent.audienceDetails.name}</p>
             <p><strong>Experience: </strong>{modalContent.experience.name}</p>
-            <p><strong>Type: </strong>{type.activity.toUpperCase()}</p>
             <hr/>
             <p><strong>Offer Id: </strong>{modalContent.offerId}</p>
             <p><strong>Offer: </strong>{modalContent.nomeOferta || modalContent.name}</p>
             <p><strong>Priority: </strong>{ordination.priority}</p>
-            <hr/>
-            <p><strong>Starts at: </strong>{formatScheduling(scheduling.startsAt)}</p>
-            <p><strong>Ends at: </strong>{formatScheduling(scheduling.endsAt)}</p>
           </AudienceModal>
         </Modal>
       }
